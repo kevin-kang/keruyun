@@ -1,0 +1,23 @@
+@import 'reset';
+body { padding-top: 99px;}
+.src { position: relative;}
+.part-1 { height: 1147px; overflow: hidden;
+	.part-bg {background: url(img/bnr-01.png) 50% 0 no-repeat; height: 1147px; position: relative; transition: margin-top .45s ease-in-out;
+		.v-btn { background: url(img/v_btn.png) 0 0 no-repeat; position: absolute; left: 50%; top: 265px; width: 214px; height: 64px; margin-left: -107px; line-height: 0; font-size: 0; text-indent: -99em; overflow: hidden; cursor: pointer;}
+	}
+}
+.part-2 { text-align: center; height: 1186px;
+    .part-2-top { background: url(img/oval.png) 50% 0 no-repeat; margin-top: -46px; height: 46px;}
+    .yt-txt { margin: 186px 0 270px;}
+    .yt-list { width: 1128px; padding: 0 0 0 158px; position: absolute; left: 50%; margin-left: -643px; height: 296px; background: url(img/yt-line.png) 0 0 no-repeat;
+        li { float: left; width: 210px; text-align: center; position: relative; margin-right: 170px; display: inline;
+            p { border: 1px solid #c3c8d1; color: $c666; background-color: $white; height: 50px; line-height: 50px; border-radius: 25px; font-size: 24px; margin-top: 30px;}
+            &.restaurant { bottom: 166px;}
+            &.fastfood { bottom: 186px;}
+            &.coffee { margin-right: 0; bottom: 187px;}
+            &.beverage { bottom: 95px;}
+            &.dessert { bottom: 93px;}
+            &.convenience { bottom: 91px; margin-right: 0;}
+        }
+    }
+}
