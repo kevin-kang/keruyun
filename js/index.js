@@ -29,19 +29,24 @@ require(['js/module/util'],function(util){
 
 		if($(e.target).hasClass('prev') && !isSlide){
 			isSlide = 1;
-			dir = '-';
+			dir = '';
+			console.log('s')
 			slideNucleus(dir, slideW);
 		}
 		if($(e.target).hasClass('next') && !isSlide){
+			
 			isSlide = 1;
-			dir = '';
+			dir = '-';
 			slideNucleus(dir, slideW);
 		}
 		
 	}
 
 	function slideNucleus(dir, slideW){
-		console.log(dir + slideW)
+
+		if(!dir){
+			$ul.prepend($ul.find('li').eq(-1));
+		}
 		$ul.animate({
 			'margin-left': dir + slideW
 			},
@@ -49,7 +54,10 @@ require(['js/module/util'],function(util){
 			isSlide = 0;
 			$(this).css({
 				'margin-left': 0
-			}).append($(this).find('li').eq(0));
+			});
+			if(dir){
+				$(this).append($(this).find('li').eq(0));
+			}
 		});
 	}
 
@@ -63,4 +71,5 @@ require(['js/module/util'],function(util){
 	}).scroll().on('resize', autoSetImageW).resize();
 
 	$prevBtn.on('click', slide);
+	$nextBtn.on('click', slide);
 });
