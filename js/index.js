@@ -30,8 +30,10 @@ require(['js/module/util'],function(util){
 		if($(e.target).hasClass('prev') && !isSlide){
 			isSlide = 1;
 			dir = '';
-			console.log('s')
-			slideNucleus(dir, slideW);
+			$ul.prepend($ul.find('li').eq(-1)).css({
+				'margin-left': -slideW
+			});
+			slideNucleus(dir, 0);
 		}
 		if($(e.target).hasClass('next') && !isSlide){
 			
@@ -43,10 +45,6 @@ require(['js/module/util'],function(util){
 	}
 
 	function slideNucleus(dir, slideW){
-
-		if(!dir){
-			$ul.prepend($ul.find('li').eq(-1));
-		}
 		$ul.animate({
 			'margin-left': dir + slideW
 			},
