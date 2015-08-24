@@ -2,7 +2,7 @@
 body { padding-top: 99px;}
 .header { position: fixed; left: 0; top: 0; right: 0;}
 .help {
-    .help-bnr { background: url(img/helpbnr.png) 0 0 repeat-x; height: 272px; font-size: 48px; color: $white; line-height: 300px; overflow: hidden; text-align: center; text-shadow: 2px 1px 1px rgba(0,0,0,.6);}
+    .help-bnr { background: url(img/helpbnr.png) 0 0 repeat-x; height: 272px; font-size: 48px; color: $white; line-height: 300px; overflow: hidden; text-align: center; text-shadow: 2px 1px 1px rgba(0,0,0,.2);}
     .help-mod { margin-top: 44px;
         h2 { border-bottom: 1px solid #d2d2d2; height: 80px; line-height: 80px; font-size: 36px;
             span { font-size: 16px;}
@@ -51,45 +51,6 @@ body { padding-top: 99px;}
             a { display: block; width: 120px; height: 30px; line-height: 30px; text-align: center; border: 1px solid #37bdfa; border-radius: 15px; font-size: 18px; color: #37bdfa; margin: 18px auto 0;
                 img { display: none;}
             }
-        }
-    }
-}
-
-.quesition { background-color: #eee; margin: 70px auto 98px;}
-.quesition-side { text-align: center; width: 300px;
-    h2 { background-color: #40bffd; font-size: 24px; color: $white; height: 108px; line-height: 108px;}
-    li { border-bottom: 1px solid $white; font-size: 18px;}
-    a { display: block; height: 82px; line-height: 82px;
-        &:hover { background-color: #6b7076; color: $white;}
-    }
-    .cur {
-        a { @extend a:hover;}
-    }
-}
-.right-box { background-color: $white; overflow: hidden; zoom: 1; padding-left: 44px;}
-.quesition-list { border: 1px solid #e5e5e5; min-height: 777px;
-    h2 { height: 63px; line-height: 63px; background-color: #e5e5e5; font-size: 18px; padding-left: 24px; @extend %els;
-        span { font-size: 14px;}
-    }  
-    ul { padding: 20px 0 20px 85px;}
-    li { line-height: 24px; font-size: 14px;}
-    a { color: $c666;
-        &:hover { color: #21c47f;}
-    } 
-    dl { padding: 10px 22px;}
-    dt { border-bottom: 1px dashed #e5e5e5; height: 58px; line-height: 58px; font-size: 18px; color: #21c47f;}
-    dd { padding: 42px 0;
-        p { line-height: 24px; font-size: 14px;}
-    }
-}
-.serviceprocess { padding: 86px 56px;
-    dl { margin-bottom: 30px;}
-    dt { @extend %clearfix; font-size: 18px;
-        span { float: left; width: 574px; border-bottom: 1px dashed #e5e5e5; height: 44px; line-height: 44px; color: #21c47f;}
-    }
-    dd { line-height: 24px; font-size: 14px;
-        p { padding-top: 24px;
-            strong { font-size: 18px; border-left: 2px solid #21c47f; padding-left: 7px;}
         }
     }
 }

@@ -60,7 +60,7 @@
 
         $(tabBtnBox).on(active, tabBtn, function() {
             var idx = $(this).index();
-            cur(this);
+            cur(this,mark);
             $(tabContBox).find(tabCont).eq(idx).show().siblings().hide();
         });
     }
