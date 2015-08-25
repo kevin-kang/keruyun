@@ -34,38 +34,11 @@ body { padding-top: 99px;}
             }
         }
     }
-    .anim { -webkit-animation: transitionBgi 5s ease-in both; 
+    .anim { -webkit-animation: transitionBgi 1s ease-in-out both; 
         li {
-            &.restaurant {
-                .img-1 { -webkit-animation: zoomOut .8s ease-out both;}
-                .img-2 { -webkit-animation: bounceIn 1s ease-in .5s both;}
-                p {  -webkit-animation: transitionColor .3s ease-out 1s both;}
-            }
-            &.fastfood {
-                .img-1 { -webkit-animation: zoomOut .8s ease-out 1s both;}
-                .img-2 { -webkit-animation: bounceIn 1s ease-in 1.5s both;}
-                p {  -webkit-animation: transitionColor .3s ease-out 2.5s both;}
-            }
-            &.coffee {
-                .img-1 { -webkit-animation: zoomOut .8s ease-out 2s both;}
-                .img-2 { -webkit-animation: bounceIn 1s ease-in 2.5s both;}
-                p {  -webkit-animation: transitionColor .3s ease-out 3.5s both;}
-            }
-            &.convenience {
-                .img-1 { -webkit-animation: zoomOut .8s ease-out 3s both;}
-                .img-2 { -webkit-animation: bounceIn 1s ease-in 3.5s both;}
-                p {  -webkit-animation: transitionColor .3s ease-out 4.5s both;}
-            }
-            &.dessert {
-                .img-1 { -webkit-animation: zoomOut .8s ease-out 4s both;}
-                .img-2 { -webkit-animation: bounceIn 1s ease-in 4.5s both;}
-                p {  -webkit-animation: transitionColor .3s ease-out 5.5s both;}
-            }
-            &.beverage {
-                .img-1 { -webkit-animation: zoomOut .8s ease-out 5s both;}
-                .img-2 { -webkit-animation: bounceIn 1s ease-in 5.5s both;}
-                p {  -webkit-animation: transitionColor .3s ease-out 6.5s both;}
-            }
+            .img-1 { -webkit-animation: zoomOut 1.2s ease-in-out .5s both;}
+            .img-2 { -webkit-animation: bounceIn 1s ease-in-out 1s both;}
+            p {  -webkit-animation: transitionColor .3s ease-in-out 1s both;}
         }
     }
 }
