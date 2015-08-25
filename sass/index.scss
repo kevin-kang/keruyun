@@ -56,15 +56,16 @@ body { padding-top: 99px;}
         }
     }
 }
-.part-4 { height: 1123px; padding-top: 182px;
+.part-4 { height: 1123px; padding: 182px 20px 0;
     .manage-txt { display: block; margin: 0 auto 36px;}
-    .manage-cover { background: url(img/yt-1.png) 0 0 no-repeat; width: 1720px; margin: 0 auto; position: relative;
+    .manage-cover { width: 100%; margin: 0 auto; position: relative;
+        img { width: 100%;}
         .coverbox { height: 779px; width: 100%; position: relative; z-index: 2; padding-bottom: 34px;}
-        .manage-cover-mask { background: url(img/yt-2.png) -2px -1px no-repeat; position: absolute; left: 0; top: 0; bottom: 0; height: 779px;
+        .manage-cover-mask { background: url(img/yt-2.png) -1px -1px no-repeat; background-size: auto 100%; position: absolute; left: 0; top: 0; bottom: 0;
         }
-        .manage-scoll { position: absolute; left: 0; bottom: 0; right: 0; background-color: #b9bdc2; height: 10px; border-radius: 5px; overflow: hidden;
+        .manage-scoll { position: absolute; left: 0; bottom: - 34px; right: 0; background-color: #b9bdc2; height: 10px; border-radius: 5px; overflow: hidden;
             p { position: absolute; height: 10px; left: 0; top: 0; background-color: #17c6e3; background-image: -webkit-linear-gradient(0deg,#20b4f6,#00f2b3); text-align: right; border-radius: 5px;
-                span { display: inline-block; *display: inline; zoom: 1; width: 6px; height: 6px; font-size: 0; line-height: 0; overflow: hidden; border-radius: 100%; background-color: #fff; border: 2px solid #c5c5c5; vertical-align: top;}
+                span { display: inline-block; *display: inline; zoom: 1; width: 6px; height: 6px; font-size: 0; line-height: 0; overflow: hidden; border-radius: 100%; background-color: #fff; border: 2px solid #c5c5c5; vertical-align: top; z-index: 1000;}
             }
         }
     }

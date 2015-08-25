@@ -14,7 +14,8 @@ require(['js/module/util'],function(util){
 		x = 0,
 		liW = 0,
 		isSlide = 0,
-		animated = 0;
+		animated = 0,
+		isMove;
 
 
 	function autoSetImageW(){
@@ -104,12 +105,21 @@ require(['js/module/util'],function(util){
 	$manageCoverMask.on('webkitAnimationEnd', function(){
 		animated = 1;
 	});
-	$manageCover.on('mousemove', function(e){
+
+	$manageScoll.find('span').on('mousedown', function(e){
 		var x = e.offsetX;
 
-		if(animated){
-			manageCover(x);
-		}		
+		isMove = 1;
+
+		$doc.on('mouseup', function(){
+			isMove = 0;
+		});
+		$doc.on('mousemove', function(e){
+			var x = e.pageX - 20;
+			if(isMove && animated){
+				manageCover(x);
+			}
+		});		
 	});
 
 	$prevBtn.on('click', slide);
