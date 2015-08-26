@@ -11,7 +11,7 @@ require(['js/module/util'], function(util){
             idx =0;
         }
         $contactusBnr.find('li').eq(idx++).addClass('cur').siblings().removeClass('cur');
-        time = setTimeout(autoShowTips, 1500);
+        time = setTimeout(autoShowTips, 3500);
     }
 
     $contactusBnr.find('li').on('mouseenter', function(){
