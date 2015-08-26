@@ -66,10 +66,10 @@ body { background-color: $white;}
         ul { float: left;}
         li { float: left; font-size: 14px; margin-right: 32px; position: relative;
             a { transition: color .3s ease-in-out .1s;}
-            &:after { height: 4px; background-color: #45c2ff; content: ''; position: absolute; left: 0; right: 0; top: 0; line-height: 0; font-size: 0; overflow: hidden; opacity: 0; transition: all .45s ease-in-out;}
+            &:after { height: 4px; background-color: #45c2ff; content: ''; position: absolute; left: 50%; right: 50%; top: 73px; line-height: 0; font-size: 0; overflow: hidden; opacity: 0; transition: all .3s ease-in-out;}
             &:hover, &.cur { 
                 a { color: #45c2ff;}
-                &:after { opacity: 1; top: 73px; }
+                &:after { opacity: 1; left: 0; right: 0; }
             }
         }
     }

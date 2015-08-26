@@ -116,7 +116,8 @@ require(['js/module/util'],function(util){
 		});
 		$doc.on('mousemove', function(e){
 			var x = e.pageX - 20;
-			if(isMove && animated){
+
+			if(isMove && animated && x <= $manageScoll.width() && x >= 0){
 				manageCover(x);
 			}
 		});		
