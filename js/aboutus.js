@@ -43,7 +43,7 @@ require(['js/module/util', 'js/module/navfixed', 'js/module/roundabout' , 'js/mo
 	$('.scroll-pic ul').roundabout({
 		shape: 'tickingClock',
 		minOpacity: 1,
-		minScale: .01,
+		minScale: .3,
 		autoplay: true,
 		autoplayDuration: 5000,
 		autoplayPauseOnHover: true,

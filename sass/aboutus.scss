@@ -80,3 +80,15 @@
 		span { font-size: 30px; font-weight: 700; padding-left: 35px; margin-right: 5px;}
 	}
 }
+.aboutus-news-cont { text-align: center; margin-top: 88px; padding-bottom: 256px;
+	h2 { display: inline-block; margin: 0 auto; border-bottom: 1px solid #21ceba; position: relative; line-height: 90px; height: 90px; font-size: 30px;
+		span { position: absolute; width: 82px; height: 3px; line-height: 0; font-size: 0; overflow: hidden; background-color: #21ceba; left: 0; bottom: -2px;}
+	}
+	dl { @extend %clearfix; text-align: left; margin-top: 74px;}
+	dt { float: left; width: 245px; height: 336px; margin-right: 66px; display: inline;
+		img { width: 245px; height: 336px;}
+	}
+	dd { line-height: 24px; font-size: 14px; color: $c666; overflow: hidden; zoom: 1; padding-top: 30px;
+		p { text-indent: 2em; padding: 0; text-align: justify;}
+	}
+}

@@ -152,6 +152,59 @@ body { padding-top: 99px;}
         dd { font-size: 14px; line-height: 24px; color: #b0b0b0; padding-top: 10px;}
     }
 }
+.hzhb { background-color: #eee; height: 125px; line-height: 125px; font-size: 24px; color: $c666; text-align: center; margin: 42px 0 52px;
+    span { display: inline-block; text-align: left; padding-left: 33px; background: url(img/line.png) no-repeat 0 50%; line-height: 20px; font-size: 14px; vertical-align: middle; margin-left: 33px;}
+}
+.jdzc { @extend %clearfix;
+    dl { display: inline-block; vertical-align: top; width: 480px; padding-bottom: 62px;
+        dt,dd { padding-left: 54px;}
+        dt { background: url(img/icon.png) no-repeat 0 0; font-size: 24px; color: #21ceba; height: 40px; line-height: 40px;}
+        dd { font-size: 14px; line-height: 20px;}
+        &.item-1 { 
+            dt { background-position: 0 0;}
+        }
+        &.item-2 { 
+            dt { background-position: 0 -40px;}
+        }
+        &.item-3 { 
+            dt { background-position: 0 -80px;}
+        }
+        &.item-4 { 
+            dt { background-position: 0 -120px;}
+        }
+        &.item-5 { 
+            dt { background-position: 0 -160px;}
+        }
+        &.item-6 { 
+            dt { background-position: 0 -200px;}
+        }
+        &.item-7 { 
+            dt { background-position: 0 -240px;}
+        }
+        &.item-8 { 
+            dt { background-position: 0 -280px;}
+        }
+        &.item-9 { 
+            dt { background-position: 0 100%;}
+        }
+        &.item-1,&.item-3,&.item-5,&.item-7 { margin-right: 36px;}
+    }
+}
+.support-ft { text-align: center; position: relative; background-position: 50% 0; background-repeat: no-repeat; height: 292px; line-height: 292px;
+    a { background: url(img/btn.png) no-repeat 50%; display: inline-block; width: 324px; height: 88px; line-height: 88px; font-size: 36px; color: $white; vertical-align: middle;}
+}
+.qd-item { @extend %clearfix; margin-top: 64px;
+    img { float: right; height: 268px; width: 300px;}
+    dl { overflow: hidden; zoom: 1; width: 520px; float: left;}
+    dt { padding-left: 30px; background: url(img/line.png) 0 50% no-repeat; font-size: 36px; line-height: 1; margin: 30px 0;}
+    dd { padding-left: 30px; font-size: 14px; color: $c999; line-height: 24px;}
+    &.qd-left { background-color: #eee; padding-right: 48px;
+        img { float: left;}
+        dl { float: right;}
+        dt { text-align: right; padding-right: 30px; background-position: 100% 50%;}
+        dd { padding-right: 30px;}
+    }
+}
 
 @-webkit-keyframes hatch {
     0% {
