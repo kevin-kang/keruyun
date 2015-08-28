@@ -60,16 +60,16 @@ body { background-color: $white;}
 .main { width: 1000px; margin: 0 auto;}
 .disn { display: none !important;}
 /*header*/
-.header { background-color: $white; height: 99px; box-shadow: 0 2px 1px rgba(0,0,0,.1); position: fixed; left: 0; top: 0; right: 0; z-index: 10;
+.header { background-color: $white; height: 99px; box-shadow: 0 2px 1px rgba(0,0,0,.1); z-index: 10; position: relative;
     h1 { float: left; width: 127px; height: 55px; margin-top: 26px; background: url(img/logo.png) no-repeat 0 50%; line-height: 0; font-size: 0; overflow: hidden; text-indent: -99em;}
     .nav { float: right; line-height: 99px;
         ul { float: left;}
         li { float: left; font-size: 14px; margin-right: 32px; position: relative;
             a { transition: color .3s ease-in-out .1s;}
-            &:after { height: 4px; background-color: #45c2ff; content: ''; position: absolute; left: 0; right: 0; top: 0; line-height: 0; font-size: 0; overflow: hidden; opacity: 0; transition: all .45s ease-in-out;}
+            &:after { height: 4px; background-color: #45c2ff; content: ''; position: absolute; left: 50%; right: 50%; top: 73px; line-height: 0; font-size: 0; overflow: hidden; opacity: 0; transition: all .3s ease-in-out;}
             &:hover, &.cur { 
                 a { color: #45c2ff;}
-                &:after { opacity: 1; top: 73px; }
+                &:after { opacity: 1; left: 0; right: 0; }
             }
         }
     }

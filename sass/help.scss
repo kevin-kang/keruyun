@@ -206,6 +206,70 @@ body { padding-top: 99px;}
     }
 }
 
+.qdzs-bnr { background-repeat: no-repeat; background-position: 50% 0; height: 594px; overflow: hidden;}
+.survey { width: 286px; margin-top: 70px;
+    h2 { font-size: 30px; margin-bottom: 48px; line-height: 1;}
+    p { line-height: 24px; font-size: 16px; color: $c666; margin-bottom: 40px;}
+    li { position: relative; line-height: 23px; height: 23px; padding-left: 18px; color: $c999;
+        span { position: absolute; width: 9px;height: 9px; line-height: 0; font-size: 0; overflow: hidden; background-color: #21ceba; border-radius: 50%; left: 0; top: 50%; margin-top: -4.5px;}
+    }
+}
+.qdhd { margin-top: 70px;
+    h2 { font-size: 30px; margin-bottom: 48px; line-height: 1; padding-left: 12px;
+        a { font-size: 16px; color: #21ceba; margin-left: 72px;}
+    }
+    li { float: left; width: 216px; height: 340px; margin-left: 12px; background-color: #eee; overflow: hidden;
+        img { height: 234px; width: 216px;}
+        h3 { font-size: 18px; line-height: 1; padding: 18px 20px 10px;}
+        p { padding: 0 20px; line-height: 20px; font-size: 14px; color: $c666;}
+    }
+}
+.kcp { background-color: #eee; margin-top: 124px; height: 378px;
+    img { float: left; width: 239px; height: 239px; margin: 70px 16px 0 22px; display: inline;}
+    dl { overflow: hidden; zoom: 1; padding: 70px 40px 0 0;}
+    dt { font-size: 30px; line-height: 1; color: #21ceba; text-align: right; margin-bottom: 60px;}
+    dd { font-size: 14px; line-height: 30px; color: $c666;}
+}
+.nicezc { text-align: center; padding-bottom: 56px;
+    h2 { font-size: 30px; line-height: 1; padding: 70px 0 44px;}
+    ul { @extend %clearfix;}
+    li { float: left; height: 130px; width: 108px; line-height: 88px; border-right: 1px solid $bdColor_e5e5e5;
+        &.last { border-right: 0;}
+        img { vertical-align: middle;}
+        span { line-height: 1; font-size: 16px; display: block; margin-top: 10px;}
+    }
+    a { display: block; width: 136px; height: 38px; font-size: 20px; line-height: 38px; border: 1px solid #33b1eb; color: #33b1eb; text-align: center; margin: 40px auto 0; border-radius: 19px;}
+}
+.sq { background-color: #21ceba; text-align: center;}
+.hblc { @extend %clearfix; padding: 30px 0 50px;
+    .rzhb { background-color: #eee; float: left; width: 340px; height: 292px;
+        h2 { font-size: 24px; line-height: 1; padding: 50px 0 35px 40px;}
+        p { font-size: 16px; line-height: 30px; padding: 0 30px 0 40px; color: $c666;}
+    }
+    .rzhblc { float: left; padding-left: 70px;
+        h2 { font-size: 30px; color: #21ceba; line-height: 1; padding: 45px 0 25px;}
+        li { position: relative; line-height: 30px; height: 30px; padding-left: 18px; color: $c999; font-size: 16px;
+            span { position: absolute; width: 9px;height: 9px; line-height: 0; font-size: 0; overflow: hidden; background-color: #21ceba; border-radius: 50%; left: 0; top: 50%; margin-top: -4.5px;}
+        }
+    }
+}
+/**/
+.apply-info { position: fixed; left: 50%; top: 30%; margin-left: -163px; width: 326px; background-color: $white; border-radius: 8px; overflow: hidden; z-index: 100;
+    h2 { font-size: 26px; line-height: 1; text-align: center; padding: 40px 0;
+        span { font-size: 12px; color: #acacac; display: block; padding-top: 8px;}
+    }
+    form {
+        label { font-size: 14px; color: $c666; line-height: 1; margin: 0 27px 20px; display: block;}
+        input { font-size: 14px; padding: 5px; margin-top: 10px; border: 1px solid #d2d6db; border-radius: 5px; height: 28px; line-height: 28px; width: 258px;
+            &:focus { border-color: #33afff;}
+            &.error { border-color: #f57b32;}
+        }
+        .sub-btn { display: block; width: 100%; height: 56px; line-height: 56px; text-align: center; color: $white; font-size: 20px; background-color: #38b2f8; border-radius: 0; border: 0; margin-bottom: 0;
+            &.gray { background-color: #d2d2d2;}
+        }
+    }
+}
+
 @-webkit-keyframes hatch {
     0% {
         -webkit-transform: rotate(0deg) scaleY(0.6);

@@ -39,8 +39,8 @@ a {
 
 %els { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 /**/
-%clearfix { zoom:1;}
 %clearfix {
+    *zoom: 1;
     &:before, &:after { content:""; display:table;}
     &:after { clear:both; }
 }
@@ -101,7 +101,7 @@ body { background-color: $white;}
     .copyright { color: #8c93a1; font-size: 14px; border-top: 1px solid #555c6a; height: 62px; line-height: 62px; text-align: center; margin-top: 92px;}
 }
 /*mask*/
-.mask-layer { height: 100%; @extend %posa; top: 0; right: 0; bottom: 0; left: 0; background-color: #000; opacity: .6; filter: alpha(opacity=60); z-index: 99; display: none;
+.mask-layer { position: absolute; height: 100%; @extend %posa; top: 0; right: 0; bottom: 0; left: 0; background-color: #000; opacity: .6; filter: alpha(opacity=60); z-index: 99;
 }
 /*animate*/
 @-webkit-keyframes bounceIn {
