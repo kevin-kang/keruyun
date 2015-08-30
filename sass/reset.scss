@@ -75,7 +75,13 @@ body { background-color: $white;}
     }
     .oth { float: right;
         a { height: 34px; line-height: 34px; width: 93px; border: 1px solid #c7d4da; border-radius: 17px; font-size: 14px; color: #9ea7b6; text-align: center; vertical-align: middle; display: inline-block; *display: inline; zoom: 1; margin-left: 10px;
-            &:hover { border-color: #31bdfe; color: #31bdfe;}
+            &.sqbtn { border-color: #31bdfe; color: #31bdfe;
+                &:active { background-color: #31bdfe;  color: $white;}
+            }
+            &.sjbtn {
+                &:hover { border-color: $c666; color: $c666;}
+                &:active { border-color: #21c47f; color: #21c47f;}
+            }
         }
     }
 }
@@ -102,6 +108,33 @@ body { background-color: $white;}
 }
 /*mask*/
 .mask-layer { position: absolute; height: 100%; @extend %posa; top: 0; right: 0; bottom: 0; left: 0; background-color: #000; opacity: .6; filter: alpha(opacity=60); z-index: 99;
+}
+/**/
+.apply-info { position: fixed; left: 50%; top: 30%; margin-left: -163px; width: 326px; background-color: $white; border-radius: 8px; overflow: hidden; z-index: 100;
+    h2 { font-size: 26px; line-height: 1; text-align: center; padding: 40px 0;
+        span { font-size: 12px; color: #acacac; display: block; padding-top: 8px;}
+    }
+    .cls-btn { background: url(img/cls-btn.png) 0 0 no-repeat; position: absolute; right: 10px; top: 10px; width: 15px; height: 15px; line-height: 0; font-size: 0; overflow: hidden; cursor: pointer;
+        &:hover { background-position: 0 50%;}
+        &:active { background-position: 0 100%;}
+    }
+    form {
+        label { font-size: 14px; color: $c666; line-height: 1; margin: 0 27px 20px; display: block; position: relative;}
+        input { font-size: 14px; padding: 5px; margin-top: 10px; border: 1px solid #d2d6db; border-radius: 5px; height: 28px; line-height: 28px; width: 260px; position: relative; z-index: 3;
+            &:focus { border-color: #33afff;}
+            &.error { border-color: #f57b32;
+                &:focus { @extend &.error;}
+            }
+        }
+        .err-tips { position: absolute; left: 0; top: 60px; width: 100%; border-radius: 0 0 5px 5px; background-color: #ff804b; height: 40px; line-height: 42px; text-align: center; color: $white; font-size: 14px; z-index: 2; overflow: hidden;}
+    }
+    .sub-btn { display: block; width: 100%; height: 56px; line-height: 56px; text-align: center; color: $white; font-size: 20px; background-color: #38b2f8; border-radius: 0; border: 0; margin-bottom: 0; padding: 0; cursor: pointer; margin-top: 50px;
+        &.gray { background-color: #d2d2d2;}
+    }
+    .sub-success { text-align: center; display: none;
+      h3 { padding-top: 90px; background: url(img/ok.png) 50% 0 no-repeat; color: #11d680; font-size: 21px;}
+      p { font-size: 14px; color: $c999; line-height: 18px; margin: 30px 0;}
+    }
 }
 /*animate*/
 @-webkit-keyframes bounceIn {

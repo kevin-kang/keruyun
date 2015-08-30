@@ -1,4 +1,4 @@
-require(['js/module/util'], function(util){
+require(['js/module/util', 'js/module/applyTips'], function(util){
     var $doc = $(document),
         $win = $(window),
         $contactusBnr = $('.contactus-bnr'),
