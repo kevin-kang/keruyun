@@ -1,6 +1,8 @@
-require(['js/module/util'], function(util) {
+require(['js/module/util', 'js/module/applyTips'], function(util) {
 	var $doc = $(document),
 		$win = $(window),
+		$nav = $('.nav'),
+		$subNavbg = $('.sub-nav-bg'),
 		$ytList = $('.yt-list'),
 		$useSaller = $('.use-saller'),
 		$ul = $useSaller.find('ul'),
@@ -11,6 +13,7 @@ require(['js/module/util'], function(util) {
 		$manageScoll = $('.manage-scoll'),
 		$manageScollHightLight = $manageScoll.find('p'),
 		$scollBtn = $manageScoll.find('span'),
+		$best = $('.best'),
 		x = 0,
 		liW = 0,
 		isSlide = 0,
@@ -28,8 +31,28 @@ require(['js/module/util'], function(util) {
 
 		$ul.show().find('li').css({
 			width: imagesW
+		}).find('img').css({
+			width: imagesW
+		});
+		$ul.find('td').css({
+			'height': $ul.find('.use-mask-box').height()
 		});
 	}
+
+	function showSubNav() {
+		if ($(this).find('.sub-nav').length) {
+			$subNavbg.addClass('anim');
+		} else {
+			hideSubNav();
+		}
+	}
+
+	function hideSubNav() {
+		$subNavbg.removeClass('anim');
+	}
+
+	$nav.on('mouseenter', 'li', showSubNav).on('mouseleave', 'li', hideSubNav);
+	$nav.on('mouseleave', hideSubNav);
 
 	function slide(e) {
 		var slideW = $useSaller.find('li').eq(0).width(),
@@ -68,99 +91,152 @@ require(['js/module/util'], function(util) {
 			});
 	}
 
-	function manageCover(x) {
-		$manageCoverMask.css({
-			width: x,
-			'animation': 'none'
-		});
-		$manageScollHightLight.css({
-			width: x,
-			'animation': 'none'
-		});
-	}
-
-	$('.warper').on('webkitTransitionEnd', function() {
-		var thisScrollTopVal = $(this).scrollTop();
-
-		if (Math.abs(sIdx) == 1 && !$ytList.hasClass('anim')) {
-			$ytList.addClass('anim');
-		}else {
-			$ytList.removeClass('anim');
-		}
-
-		if (Math.abs(sIdx) == 3 && !$manageCover.hasClass('anim')) {
-			$manageCover.addClass('anim');
-		}else{
-			$manageCover.removeClass('anim');
-		}
-	});
 	$win.on('resize', autoSetImageW).resize();
 
-	$manageCoverMask.on('webkitAnimationEnd', function() {
-		animated = 1;
-	});
+	$.fn.resetImgWidth = function() {
+		return $(this).each(function() {
+			var $target = $(this),
+				targetW = $target.width();
 
-	function animates(sIdx) {
-		var target = $('.warper'),
-			winH = $(this).height() < 955 ? 955 : $(this).height();
+			function resizeWin() {
+				var winProportion = ($win.height() / $win.width()) > 1 ? 1 : ($win.height() / $win.width());
 
-		arrTmp = [];
-		if (Math.abs(sIdx) < 5) {
-			$doc.find('.dot').fadeIn();
-			target.css({
-				'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)',
-				'transition': 'all 1000ms cubic-bezier(0.86, 0, 0.07, 1)'
-			});
-		} else {
-			target.css({
-				'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)',
-				'transition': 'all 1000ms cubic-bezier(0.86, 0, 0.07, 1)'
-			});
-		}
+				$target.css({
+					'width': targetW * winProportion
+				});
+			}
 
-		$doc.find('.dot li').eq(Math.abs(sIdx)).addClass('cur').siblings().removeClass('cur');
-		// target.find('.src').eq(Math.abs(sIdx)).show(function(){
-		// 	$(this).siblings().hide();
-		// });
+			$win.on('resize', resizeWin).resize();
+
+		});
 	};
 
-	$('html,body').on('mousewheel', function() {
-		var delta = window.event.detail ? -(window.event.detail || 0) / 3 : window.event.wheelDelta / 120;
-		clearTimeout(times);
-		times = setTimeout(function() {
-			if (delta > 0 && sIdx <= 0) {
-				sIdx++;
-			} else if (delta < 0 && Math.abs(sIdx) < 5) {
-				sIdx--;
-			}
-			animates(sIdx);
 
-		}, 300);
+	if (navigator.userAgent.toLowerCase().match(/applewebkit/) == 'applewebkit') {
+		$('body, html').css({
+			'height': '100%',
+			// 'min-height': '955px',
+			'overflow': 'hidden',
+			'padding-top': 0
+		});
 
-	});
+		$('.warper').css({
+			'height': '100%'
+		});
 
-	$doc.find('.dot li').on('click', function() {
-		var target = $(this);
-		sIdx = -target.index();
-		animates(sIdx);
+		$('.src').css({
+			'height': $doc.height(),
+			'overflow': 'hidden'
+		});
 
-	});
+		$('.dot').show();
 
-	$win.on('resize', function() {
-		var target = $('.warper'),
-			winH = $(this).height() < 955 ? 955 : $(this).height();
-		if (Math.abs(sIdx) < 5) {
-			target.css({
-				'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)',
-				'transition': '0'
+
+		function manageCover(x) {
+			$manageCoverMask.css({
+				width: x,
+				'animation': 'none'
 			});
-		} else {
-			target.css({
-				'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)',
-				'transition': '0'
+			$manageScollHightLight.css({
+				width: x,
+				'animation': 'none'
 			});
 		}
-	});
+		$('.warper').on('webkitTransitionEnd', function() {
+
+			if (Math.abs(sIdx) == 1 && !$ytList.hasClass('anim')) {
+				$ytList.addClass('anim');
+			} else {
+				$ytList.removeClass('anim');
+			}
+
+			if (Math.abs(sIdx) == 3 && !$manageCover.hasClass('anim')) {
+				$manageCover.addClass('anim');
+			} else {
+				$manageCover.removeClass('anim');
+			}
+
+			if (Math.abs(sIdx) == 4 && !$best.hasClass('anim')) {
+				$best.addClass('anim');
+			} else if(Math.abs(sIdx) < 4) {
+				$best.removeClass('anim');
+			}
+		});
+
+
+		$manageCoverMask.on('webkitAnimationEnd', function() {
+			animated = 1;
+		});
+
+		function animates(sIdx) {
+			var target = $('.warper'),
+				winH = $(this).height();
+
+			arrTmp = [];
+			if (Math.abs(sIdx) < 5) {
+				$doc.find('.dot').fadeIn();
+				target.css({
+					'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)',
+					'transition': 'all 1000ms cubic-bezier(0.86, 0, 0.07, 1)'
+				});
+			} else {
+				target.css({
+					'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)',
+					'transition': 'all 1000ms cubic-bezier(0.86, 0, 0.07, 1)'
+				});
+			}
+
+			$doc.find('.dot li').eq(Math.abs(sIdx)).addClass('cur').siblings().removeClass('cur');
+			// target.find('.src').eq(Math.abs(sIdx)).show(function(){
+			// 	$(this).siblings().hide();
+			// });
+		};
+
+		$('html,body').on('mousewheel', function() {
+			var delta = window.event.detail ? -(window.event.detail || 0) / 3 : window.event.wheelDelta / 120;
+			clearTimeout(times);
+			times = setTimeout(function() {
+				if (delta > 0 && sIdx <= 0) {
+					sIdx++;
+				} else if (delta < 0 && Math.abs(sIdx) < 5) {
+					sIdx--;
+				}
+				sIdx > 0 ? sIdx = 0 : sIdx;
+				animates(sIdx);
+
+			}, 300);
+
+		});
+
+		$doc.find('.dot li').on('click', function() {
+			var target = $(this);
+			sIdx = -target.index();
+			animates(sIdx);
+
+		});
+
+		$win.on('resize', function() {
+			var target = $('.warper'),
+				winH = $win.height();
+			if (Math.abs(sIdx) < 5) {
+				target.css({
+					'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)',
+					'transition': '0'
+				});
+			} else {
+				target.css({
+					'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)',
+					'transition': '0'
+				});
+			}
+			$('.src').css({
+				'height': $doc.height(),
+				'overflow': 'hidden'
+			});
+		}).resize();
+	} else {
+		$manageScoll.hide();
+	}
 
 	$manageScoll.find('span').on('mousedown', function(e) {
 		isMove = 1;
@@ -169,7 +245,7 @@ require(['js/module/util'], function(util) {
 			isMove = 0;
 		});
 		$doc.on('mousemove', function(e) {
-			var x = e.pageX - ($win.width() - 1000)/2;
+			var x = e.pageX - ($win.width() - 1000) / 2;
 			if (isMove && animated && x <= $manageScoll.width() && x >= 0) {
 				manageCover(x);
 			}

@@ -24,7 +24,7 @@ select {
     // -webkit-appearance: none;
 }
 table {border-collapse: collapse; border-spacing: 0;}
-a, img, input, textarea { outline:$none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+a, img, input, textarea { outline:$none; -webkit-tap-highlight-color: rgba(0,0,0,0); border: 0;}
 body { font: normal 12px/1 "Microsoft YaHei",tahoma, Verdana, Arial, sans-serif; color: $c333; position: relative; overflow-x: hidden;}
 input, textarea, img { vertical-align: middle;}
 input, textarea, select { font-family: "Microsoft YaHei",tahoma, Verdana;}
@@ -62,19 +62,25 @@ body { background-color: $white;}
 /*header*/
 .header { background-color: $white; height: 99px; box-shadow: 0 2px 1px rgba(0,0,0,.1); z-index: 10; position: relative;
     h1 { float: left; width: 127px; height: 55px; margin-top: 26px; background: url(img/logo.png) no-repeat 0 50%; line-height: 0; font-size: 0; overflow: hidden; text-indent: -99em;}
-    .nav { float: right; line-height: 99px;
+    .nav { float: right; line-height: 99px; width: 700px;
         ul { float: left;}
         li { float: left; font-size: 14px; margin-right: 32px; position: relative;
             a { transition: color .3s ease-in-out .1s;}
+            .sub-nav { position: absolute; width: 1000px; top: 99px; height: 100px; line-height: 100px; z-index: 3; display: none; opacity: 0; transition: opacity .3s cubic-bezier(0.18, 0.89, 0.32, 1.28) .2s;
+                a { font-size: 16px; color: #6f6f6f !important; margin: 0 52px 0 0;
+                    &:hover { color: $white !important;}
+                }
+            }
             &:after { height: 4px; background-color: #45c2ff; content: ''; position: absolute; left: 50%; right: 50%; top: 73px; line-height: 0; font-size: 0; overflow: hidden; opacity: 0; transition: all .3s ease-in-out;}
             &:hover, &.cur { 
                 a { color: #45c2ff;}
                 &:after { opacity: 1; left: 0; right: 0; }
+                & > .sub-nav { display: block; opacity: 1;}
             }
         }
     }
-    .oth { float: right;
-        a { height: 34px; line-height: 34px; width: 93px; border: 1px solid #c7d4da; border-radius: 17px; font-size: 14px; color: #9ea7b6; text-align: center; vertical-align: middle; display: inline-block; *display: inline; zoom: 1; margin-left: 10px;
+    .oth { float: right; padding-top: 30px;
+        a { height: 34px; line-height: 34px; width: 93px; border: 1px solid #c7d4da; border-radius: 17px; font-size: 14px; color: #9ea7b6; text-align: center; vertical-align: top; display: inline-block; *display: inline; zoom: 1; margin-left: 10px;
             &.sqbtn { border-color: #31bdfe; color: #31bdfe;
                 &:active { background-color: #31bdfe;  color: $white;}
             }
@@ -84,6 +90,10 @@ body { background-color: $white;}
             }
         }
     }
+    .sub-nav-bg { background-color: #313131; position: absolute; width: 100%; top: 99px; height: 0; line-height: 0; font-size: 0; overflow: hidden; transition: height .4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        &.anim { height: 100px;}
+    }
+    
 }
 /*footer*/
 .footer { background-color: #464d5a;
@@ -100,7 +110,7 @@ body { background-color: $white;}
         .ecode { @extend .fl; margin-right: 22px; display: inline;}
         a { @extend .fr; width: 80px; height: 32px; line-height: 32px; text-align: center; border: 1px solid #717987; border-radius: 
             16px; clear: right; margin-bottom: 18px;
-            img { vertical-align: middle; position: relative; bottom: 2px;}
+            img { vertical-align: middle; position: relative; bottom: 2px; *bottom: -3px;}
         }
         p { color: #717987; font-size: 14px; line-height: 16px;}
     }
@@ -125,6 +135,10 @@ body { background-color: $white;}
             &.error { border-color: #f57b32;
                 &:focus { @extend &.error;}
             }
+        }
+        select { width: 100%; height: 40px; position: absolute; left: 0; bottom: 0; -webkit-appearance: none; background: transparent; z-index: 4; opacity: 0;
+            &:focus ~ input { border-color: #33afff;}
+            &:focus ~ .error { border-color: #f57b32;}
         }
         .err-tips { position: absolute; left: 0; top: 60px; width: 100%; border-radius: 0 0 5px 5px; background-color: #ff804b; height: 40px; line-height: 42px; text-align: center; color: $white; font-size: 14px; z-index: 2; overflow: hidden;}
     }

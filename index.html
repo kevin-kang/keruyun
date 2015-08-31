@@ -13,7 +13,17 @@
             <div class="nav">
                 <ul>
                     <li class="cur"><a href="#nogo">首页</a></li>
-                    <li><a href="#nogo">产品中心</a></li>
+                    <li><a href="#nogo">产品中心</a>
+                        <div class="sub-nav">
+                            <a href="#nogo">预定</a>
+                            <a href="#nogo">排对</a>
+                            <a href="#nogo">外卖</a>
+                            <a href="#nogo">收银</a>
+                            <a href="#nogo">会员</a>
+                            <a href="#nogo">营销</a>
+                            <a href="#nogo">供应链</a>
+                        </div>
+                    </li>
                     <li><a href="#nogo">硬件</a></li>
                     <li><a href="#nogo">合作案例</a></li>
                     <li><a href="#nogo">关于我们</a></li>
@@ -22,6 +32,7 @@
                 <div class="oth"><a class="sqbtn" href="#nogo">申请开通</a><a class="sjbtn" href="#nogo">商家后台</a></div>
             </div>
         </div>
+        <div class="sub-nav-bg"></div>
     </div>
     <div class="warper">
         <div class="src part-1">
@@ -228,6 +239,12 @@
         </div>
         <div class="src part-5" style="background-image: url(images/best-bnr.png);">
             <img class="best-txt" src="images/txt-4.png" alt="">
+            <ul class="best">
+                <li class="item-1"><img src="images/index-icon-1.png" alt=""></li>
+                <li class="item-2"><img src="images/index-icon-2.png" alt=""></li>
+                <li class="item-3"><img src="images/index-icon-3.png" alt=""></li>
+                <li class="item-4"><img src="images/index-icon-4.png" alt=""></li>
+            </ul>
         </div>
         <div class="footer">
             <div class="main">
@@ -313,6 +330,42 @@
     		<li></li>
     	</ul>
     </div>
+
+    <div class="mask-layer" style="display: block;"></div>
+    <div class="apply-info">
+        <h2 scinfo="客如云">申请信息<span scinfo="智慧服务  实时直达">客如云餐饮服务系统账号</span></h2>
+        <div class="cls-btn apply-cls">X</div>
+        <form class="apply-info-form" action="">
+            <label for="name">
+                商户名称
+                <input type="text" id="name" class="" errorMsg="*商户名称不能空">
+            </label>
+            <label for="phone">
+                联系电话
+                <input type="text" id="phone" errorMsg="*输入正确的电话">
+            </label>
+            <label for="region">
+                联系人
+                <input type="text" id="region" errorMsg="*联系人不能空">
+            </label>
+            <label for="adds">
+                商户所在地址
+                <select name="adds">
+                    <option value=""></option>
+                    <option value="01">北京</option>
+                    <option value="02">成都</option>
+                </select>
+                <input type="text" class="" id="adds" errorMsg="*商户所在地址不能空">
+            </label>
+            <input class="sub-btn gray" disabled="disabled" type="submit">
+        </form>
+        <div class="sub-success">
+            <h3>提交成功</h3>
+            <p>感谢您选择客如云，请保持手机畅通<br>我们的客服会尽快与您联系</p>
+            <div class="sub-btn apply-cls">确定</div>
+        </div>
+    </div>
+
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/require.js"></script>
     <script src="js/index.js"></script>

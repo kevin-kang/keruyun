@@ -13,7 +13,7 @@ define(['js/module/util'], function(util) { // apply-info 弹层
 	function verifyinput() {
 		var $target = $(this),
 			errorMsg = $target.attr('errorMsg');
-
+			console.log($target);
 		if (util.isNull($target.val())) {
 			($target.data('isverify') && weights > 0) && weights--;
 			!$target.next('.err-tips').length && $target.after(errorTips).addClass('error');
@@ -25,6 +25,16 @@ define(['js/module/util'], function(util) { // apply-info 弹层
 		}
 		showSubBtn();
 	}
+
+	function selectExt(){
+		var $target = $(this),
+			$siblingsInput = $target.siblings('input'),
+			targetTxt = $target.find('option:selected').text();
+
+		$siblingsInput.val(targetTxt).focus();
+	}
+
+	$('select').on('change', selectExt).change();
 
 	function removeErrotips() {
 		var $target = $(this);
@@ -46,7 +56,7 @@ define(['js/module/util'], function(util) { // apply-info 弹层
 		var $target = $(this);
 
 		$maskLayer.hide();
-		$applyInfo.hide().find('input[type="text"], input[type="password"], input[type="hidde"]').each(resetform);
+		$applyInfo.hide().find('input[type="text"], input[type="password"], input[type="hidde"], select').each(resetform);
 	}
 
 	function resetform() {
@@ -54,6 +64,10 @@ define(['js/module/util'], function(util) { // apply-info 弹层
 		$('input[type="submit"]').prop('disabled', true).addClass('gray');
 	};
 
-	$applyInfo.find('input').on('keyup', verifyinput).on('focusout', removeErrotips);
+	$('#adds').on('input',function(){
+		console.log($(this).val());
+	})
+
+	$applyInfo.find('input').on('input', verifyinput).on('focusout', removeErrotips);
 	$clsBtn.on('click', clsApplyPop);
 });
