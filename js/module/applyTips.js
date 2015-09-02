@@ -1,73 +1,134 @@
-define(['js/module/util'], function(util) { // apply-info 弹层
+define(['js/module/util', 'js/module/validation/additional-methods'], function(util) { // apply-info 弹层
 	var $doc = $(document),
 		$win = $(window),
 		$maskLayer = $('.mask-layer'),
 		$applyInfo = $('.apply-info'),
 		$clsBtn = $('.apply-cls'),
 		$subBtn = $('.sub-btn'),
-		$input = $applyInfo.find('input[type="text"], input[type="password"], input[type="hidde"]'),
-		errorTips = '<div class="err-tips"></div>',
-		len = $input.length,
-		weights = 0;
+		$sqbtn = $('.sqbtn'),
+		$input = $applyInfo.find('input[type="text"], input[type="password"], input[type="hidde"], select').not('.ignore'),
+		$form = $('#form') || $('form'),
+		validator = $form.validate({
+			submitHandler: function(form) {
+				$.ajax({
+					url: '', //提交的url
+					type: 'POST',
+					dataType: 'json',
+					data: $form.serialize()
+				}).done(function(data) {
+					// if () { //成功
+					// 	clsApplyPop
+					// }
+				});
+				return false;
+			},
+			ignore: '.ignore',
+			errorClass: 'err-tips',
+			errorElement: 'div',
+			rules: {
+				dealer: {
+					required: true
+				},
+				username: {
+					required: true
+				},
+				area: {
+					required: true
+				},
+				region: {
+					required: true
+				},
+				phone: {
+					required: true,
+					verifPhone: true
+				},
+				contacter: {
+					required: true
+				},
+				adds: {
+					required: true
+				}
+			},
+			messages: {
+				dealer: {
+					required: $(this).attr('errorMsg') || '*商户名称不能空'
+				},
+				username: {
+					required: $(this).attr('errorMsg') || '*输入正确的姓名'
+				},
+				area: {
+					required: '*输入正确的所在地区'
+				},
+				region: {
+					required: '*输入正确的代理区域'
+				},
+				phone: {
+					required: '*输入正确的电话'
+				},
+				contacter: {
+					required: '*联系人不能空'
+				},
+				adds: {
+					required: '*商户所在地址不能空'
+				}
+			},
+			errorPlacement: function(error, element) {
+				$(element).after(error);
+			}
+		});
 
-	function verifyinput() {
-		var $target = $(this),
-			errorMsg = $target.attr('errorMsg');
-			console.log($target);
-		if (util.isNull($target.val())) {
-			($target.data('isverify') && weights > 0) && weights--;
-			!$target.next('.err-tips').length && $target.after(errorTips).addClass('error');
-			$target.data('isverify', 0).focus().next('.err-tips').html(errorMsg);
-		} else if (!util.isNull($target.val())) {
-			(!$target.data('isverify') && weights < len) && weights++;
-			$target.removeClass('error').data('isverify', 1).next('.err-tips').remove();
+	$.validator.addMethod('verifPhone', function(value, element, param) {
+		return param == true && /^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/g.test(value); //增加手机号吗验证
+	}, '*输入正确的电话');
 
-		}
-		showSubBtn();
+	function resetform() { //重置表单为初始状态
+		validator.resetForm();
+		$.each($form.find('input, select'), function() {
+			if ($(this).attr('type') == ('checkbox' || 'radio')) {
+				$(this).prop('checked', false);
+			}
+			if ($(this).attr('type') == 'text' || $(this).attr('type') == 'password') {
+				$(this).val('');
+			}
+			if ($(this).is('select')) {
+				$(this).val($(this).find('option:first').val()).change();
+			}
+		});
 	}
 
-	function selectExt(){
+	function selectExt() {
 		var $target = $(this),
 			$siblingsInput = $target.siblings('input'),
 			targetTxt = $target.find('option:selected').text();
 
-		$siblingsInput.val(targetTxt).focus();
+		$siblingsInput.val(targetTxt);
 	}
 
 	$('select').on('change', selectExt).change();
 
-	function removeErrotips() {
-		var $target = $(this);
-
-		if (util.isNull($target.val())) {
-			errorTips = $target.next('.err-tips').detach();
-		}
-	}
-
-	function showSubBtn() {
-		if (len == weights) {
-			$subBtn.removeClass('gray').prop('disabled', false);
-		} else {
-			$subBtn.addClass('gray').prop('disabled', true);
-		}
-	}
-
 	function clsApplyPop() {
-		var $target = $(this);
-
+		$applyInfo.hide();
 		$maskLayer.hide();
-		$applyInfo.hide().find('input[type="text"], input[type="password"], input[type="hidde"], select').each(resetform);
+		resetform();
 	}
 
-	function resetform() {
-		$(this).val('');
-		$('input[type="submit"]').prop('disabled', true).addClass('gray');
-	};
+	function setApplyInfo(){
+		var winH = $win.height(),
+			applyInfoH = $applyInfo.height();
 
-	$('#adds').on('input',function(){
-		console.log($(this).val());
-	})
+		$('.apply-info').css({
+			'top': (winH - applyInfoH) / 2 / winH * 100 + '%'
+		});
+	}
 
-	$applyInfo.find('input').on('input', verifyinput).on('focusout', removeErrotips);
+	function showApplyInfo(){
+		$('.mask-layer').show();
+		$('.apply-info').show();
+	}
+
+	$sqbtn.on('click', showApplyInfo);
+
+	$win.on('resize', setApplyInfo).resize();
+
 	$clsBtn.on('click', clsApplyPop);
 });

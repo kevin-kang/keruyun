@@ -211,28 +211,53 @@
 		</div>
 	</div>
 
-	<div class="mask-layer" style="display: block;"></div>
+	<div class="mask-layer"></div>
 	<div class="apply-info">
 		<h2 scinfo="客如云">申请信息<span scinfo="智慧服务  实时直达">客如云餐饮服务系统账号</span></h2>
 		<div class="cls-btn apply-cls">X</div>
-		<form class="apply-info-form" action="">
-			<label for="name">
-				请输入姓名
-				<input type="text" id="name" class="" errorMsg="*输入正确的姓名">
-			</label>
-			<label for="area">
-				请输入所在地区
-				<input type="text" id="area" errorMsg="*输入正确的所在地区">
-			</label>
-			<label for="region">
-				请输入代理区域
-				<input type="text" id="region" errorMsg="*输入正确的代理区域">
-			</label>
-			<label for="phone">
-				请输入电话号码
-				<input type="text" id="phone" errorMsg="*输入正确的电话号码">
-			</label>
-			<input class="sub-btn gray" disabled="disabled" type="submit">
+		<form id="form" class="apply-info-form" action="">
+			<div class="apply-info-form-b">
+                <label for="name">
+                    商户名称
+                    <input type="text" name="dealer" id="name" class="" errorMsg="">
+                </label>
+                <label for="phone">
+                    联系电话
+                    <input type="text" name="phone" class="phone" id="phone" errorMsg="*输入正确的电话">
+                </label>
+                <label for="region">
+                    联系人
+                    <input type="text" name="contacter" id="region" errorMsg="*联系人不能空">
+                </label>
+                <label for="adds">
+                    商户所在地址
+                    <select name="adds" id="adds" errorMsg="*商户所在地址不能空">
+                        <option value="">请选择</option>
+                        <option value="01">北京</option>
+                        <option value="02">成都</option>
+                    </select>
+                    <input type="text" class="ignore" >
+                </label>
+            </div>
+			<div class="apply-info-form-u">
+				<label for="name">
+					请输入姓名
+					<input type="text" name="username" id="name" class="" errorMsg="*输入正确的姓名">
+				</label>
+				<label for="area">
+					请输入所在地区
+					<input type="text" name="area" id="area" errorMsg="*输入正确的所在地区">
+				</label>
+				<label for="region">
+					请输入代理区域
+					<input type="text" name="region" id="region" errorMsg="*输入正确的代理区域">
+				</label>
+				<label for="phone">
+					请输入电话号码
+					<input type="text" name="phone" id="phone" errorMsg="*输入正确的电话号码">
+				</label>
+			</div>
+			<input class="sub-btn" type="submit">
 		</form>
 		<div class="sub-success">
 			<h3>提交成功</h3>

@@ -2,7 +2,7 @@
 .fs20 { font-size: 20px !important;}
 .fs36 { font-size: 36px !important;}
 .subnav-box .subnav { z-index: 300 !important;}
-.aboutus-bnr { height: 594px; background-repeat: no-repeat; background-position: 50% 0; overflow: hidden;}
+.aboutus-bnr { height: 594px; background-repeat: no-repeat; background-position: 50% 0; width: 100%; overflow: hidden;}
 .subnav-box { height: 72px;
 	.subnav { height: 72px; line-height: 72px; text-align: center; position: relative; z-index: 10; box-shadow: 0 2px 1px rgba(0,0,0,.1); background-color: $white; width: 100%; right: 0; top: 0; left: 0;
 		ul { @extend %clearfix; padding-left: 2px;}

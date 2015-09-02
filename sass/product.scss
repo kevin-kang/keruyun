@@ -1,0 +1,38 @@
+@import 'reset';
+body { padding-top: 99px;}
+.header { position: fixed; left: 0; top: 0; right: 0;}
+.pdbnr { text-align: center; width: 100%; overflow: hidden; height: 628px; background-color: #ea7e72;}
+.kw { text-align: center; background-color: #f6f7f9; height: 600px; position: relative;
+    .main { position: absolute; left: 50%; top: 0; margin-left: -500px; height: 600px; text-align: left;
+        img { position: absolute; left: 0; top: 342px;}
+        p { font-size: 14px; line-height: 24px; position: absolute; left: 0; top: 416px;}
+    }
+}
+.pdinfo { @extend %clearfix; padding: 7px 0 90px;
+    dl { display: inline-block; *display: inline; zoom:1; margin-left: -3px; width: 333px; margin-top: 35px; vertical-align: top;}
+    dt, dd { padding-left: 46px;}
+    dt { font-size: 26px; background: url(img/pdicon.png) 0 0 no-repeat; height: 32px; line-height: 32px; margin: 0 0 20px 0; overflow: hidden;}
+    dd { line-height: 24px; font-size: 14px;}
+    .item-1 dt { background-position: 0 0;}
+    .item-2 dt { background-position: 0 -32px;}
+    .item-3 dt { background-position: 0 -64px;}
+    .item-4 dt { background-position: 0 -96px;}
+    .item-5 dt { background-position: 0 -128px;}
+    .item-6 dt { background-position: 0 -160px;}
+    .item-7 dt { background-position: 0 -192px;}
+    .item-8 dt { background-position: 0 -224px;}
+    .item-9 dt { background-position: 0 100%;}
+}
+.pdcs { background-repeat: no-repeat; background-position: 50% 0; height: 596px; overflow: hidden; text-align: center;
+    img { position: relative; top: 390px;}
+    p { margin-top: 405px; color: #fff; line-height: 1;}
+    .main { text-align: right;
+        img { top: 360px;}
+    }
+}
+.pdlist { @extend %clearfix; padding-bottom: 168px;
+    h2 { padding: 70px 0 118px; font-size: 48px; text-align: center;}
+    dl { display: inline-block; *display: inline; zoom: 1; width: 250px; margin-left: -3px; vertical-align: top;}
+    dt { font-size: 34px; padding-bottom: 20px;}
+    dd { font-family: ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, メイリオ, Meiryo, ＭＳ Ｐゴシック, MS PGothic, sans-serif; line-height: 2.2; font-size: 16px;}
+}

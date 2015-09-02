@@ -1,8 +1,6 @@
-require(['js/module/util', 'js/module/applyTips'], function(util) {
+require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(util) {
 	var $doc = $(document),
 		$win = $(window),
-		$nav = $('.nav'),
-		$subNavbg = $('.sub-nav-bg'),
 		$ytList = $('.yt-list'),
 		$useSaller = $('.use-saller'),
 		$ul = $useSaller.find('ul'),
@@ -38,21 +36,6 @@ require(['js/module/util', 'js/module/applyTips'], function(util) {
 			'height': $ul.find('.use-mask-box').height()
 		});
 	}
-
-	function showSubNav() {
-		if ($(this).find('.sub-nav').length) {
-			$subNavbg.addClass('anim');
-		} else {
-			hideSubNav();
-		}
-	}
-
-	function hideSubNav() {
-		$subNavbg.removeClass('anim');
-	}
-
-	$nav.on('mouseenter', 'li', showSubNav).on('mouseleave', 'li', hideSubNav);
-	$nav.on('mouseleave', hideSubNav);
 
 	function slide(e) {
 		var slideW = $useSaller.find('li').eq(0).width(),
@@ -158,7 +141,7 @@ require(['js/module/util', 'js/module/applyTips'], function(util) {
 
 			if (Math.abs(sIdx) == 4 && !$best.hasClass('anim')) {
 				$best.addClass('anim');
-			} else if(Math.abs(sIdx) < 4) {
+			} else if (Math.abs(sIdx) < 4) {
 				$best.removeClass('anim');
 			}
 		});
@@ -254,4 +237,5 @@ require(['js/module/util', 'js/module/applyTips'], function(util) {
 
 	$prevBtn.on('click', slide);
 	$nextBtn.on('click', slide);
+	
 });

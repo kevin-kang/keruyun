@@ -2,7 +2,7 @@
 body { padding-top: 99px;}
 .header { position: fixed; left: 0; top: 0; right: 0;}
 .help {
-    .help-bnr { background: url(img/helpbnr.png) 0 0 repeat-x; height: 272px; font-size: 48px; color: $white; line-height: 300px; overflow: hidden; text-align: center; text-shadow: 2px 1px 1px rgba(0,0,0,.6);}
+    .help-bnr { background: url(img/helpbnr.png) 0 0 repeat-x; height: 272px; font-size: 48px; color: $white; line-height: 300px; overflow: hidden; text-align: center; text-shadow: 2px 1px 1px rgba(0,0,0,.6); width: 100%;}
     .help-mod { margin-top: 44px;
         h2 { border-bottom: 1px solid #d2d2d2; height: 80px; line-height: 80px; font-size: 36px;
             span { font-size: 16px;}
@@ -207,7 +207,7 @@ body { padding-top: 99px;}
     }
 }
 
-.qdzs-bnr { background-repeat: no-repeat; background-position: 50% 0; height: 594px; overflow: hidden;}
+.qdzs-bnr { background-repeat: no-repeat; background-position: 50% 0; height: 594px; width: 100%; overflow: hidden;}
 .survey { width: 286px; margin-top: 70px;
     h2 { font-size: 30px; margin-bottom: 48px; line-height: 1;}
     p { line-height: 24px; font-size: 16px; color: $c666; margin-bottom: 40px;}
