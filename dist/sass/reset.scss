@@ -75,8 +75,8 @@ body { background-color: $white;}
             &:hover, &.cur { 
                 a { color: #45c2ff;}
                 &:after { opacity: 1; left: 0; right: 0; }
-                & > .sub-nav { display: block; opacity: 1;}
             }
+            &:hover > .sub-nav { display: block; opacity: 1;}
         }
     }
     .oth { float: right; padding-top: 30px;
@@ -153,6 +153,8 @@ body { background-color: $white;}
       p { font-size: 14px; color: $c999; line-height: 18px; margin: 30px 0;}
     }
 }
+/**/
+.gotop-btn { position: fixed; right: 5%; bottom: 10%; z-index: 85; cursor: pointer; display: none;}
 /*animate*/
 @-webkit-keyframes bounceIn {
   from, 20%, 40%, 60%, 80%, 100% {

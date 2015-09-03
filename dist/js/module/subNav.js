@@ -1,0 +1,1 @@
+define(function(){function n(){$(this).find(".sub-nav").length?a.addClass("anim"):e()}function e(){a.removeClass("anim")}var o=($(document),$(window),$(".nav")),a=$(".sub-nav-bg");o.on("mouseenter","li",n).on("mouseleave","li",e),o.on("mouseleave",e)});
