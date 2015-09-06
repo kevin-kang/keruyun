@@ -18,7 +18,7 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		animated = 0,
 		isMove,
 		sIdx = 0,
-		times = null,
+		sdtimes = times = null,
 		arrTmp = [];
 
 
@@ -74,7 +74,19 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 			});
 	}
 
-	$win.on('resize', autoSetImageW).resize();
+	function stopSlide(){
+		clearInterval(sdtimes);
+	}
+
+	function initSlide(){
+		sdtimes = setInterval(function(){
+			slideNucleus('-', $ul.find('li').width());
+		}, 3000);
+	}
+
+	$useSaller.on('mouseenter', stopSlide).on('mouseleave', initSlide).trigger('mouseleave');
+
+	// $win.on('resize', autoSetImageW).resize();
 
 	$.fn.resetImgWidth = function() {
 		return $(this).each(function() {
@@ -159,13 +171,11 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 			if (Math.abs(sIdx) < 5) {
 				$doc.find('.dot').fadeIn();
 				target.css({
-					'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)',
-					'transition': 'all 1000ms cubic-bezier(0.86, 0, 0.07, 1)'
+					'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)'
 				});
 			} else {
 				target.css({
-					'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)',
-					'transition': 'all 1000ms cubic-bezier(0.86, 0, 0.07, 1)'
+					'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)'
 				});
 			}
 
@@ -219,21 +229,28 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		}).resize();
 	} else {
 		$manageScoll.hide();
+		$('.part-5').find('li').css({
+			'opacity': 1
+		})
 	}
 
 	$manageScoll.find('span').on('mousedown', function(e) {
 		isMove = 1;
 
+		e.stopPropagation;
 		$doc.on('mouseup', function() {
 			isMove = 0;
 		});
 		$doc.on('mousemove', function(e) {
 			var x = e.pageX - ($win.width() - 1000) / 2;
+
 			if (isMove && animated && x <= $manageScoll.width() && x >= 0) {
 				manageCover(x);
 			}
 		});
 	});
+
+	window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
 
 	$prevBtn.on('click', slide);
 	$nextBtn.on('click', slide);

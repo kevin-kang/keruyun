@@ -1,6 +1,8 @@
 @import 'reset';
-body { padding-top: 99px;}
-.header { position: fixed; left: 0; top: 0; right: 0;}
+body { padding-top: 80px;}
+.header { position: fixed; left: 0; top: 0; right: 0;
+    .nav { width: auto;}
+}
 .help {
     .help-bnr { background: url(img/helpbnr.png) 0 0 repeat-x; height: 272px; font-size: 48px; color: $white; line-height: 300px; overflow: hidden; text-align: center; text-shadow: 2px 1px 1px rgba(0,0,0,.6); width: 100%;}
     .help-mod { margin-top: 44px;
@@ -157,7 +159,7 @@ body { padding-top: 99px;}
     span { display: inline-block; text-align: left; padding-left: 33px; background: url(img/line.png) no-repeat 0 50%; line-height: 20px; font-size: 14px; vertical-align: middle; margin-left: 33px;}
 }
 .jdzc { @extend %clearfix;
-    dl { display: inline-block; vertical-align: top; width: 480px; padding-bottom: 62px;
+    dl { display: inline-block; *display: inline; zoom: 1; vertical-align: top; width: 480px; padding-bottom: 62px;
         dt,dd { padding-left: 54px;}
         dt { background: url(img/icon.png) no-repeat 0 0; font-size: 24px; color: #21ceba; height: 40px; line-height: 40px;}
         dd { font-size: 14px; line-height: 20px;}
@@ -192,7 +194,7 @@ body { padding-top: 99px;}
     }
 }
 .support-ft { text-align: center; position: relative; background-position: 50% 0; background-repeat: no-repeat; height: 292px; line-height: 292px;
-    a { background: url(img/btn.png) no-repeat 50%; display: inline-block; width: 324px; height: 88px; line-height: 88px; font-size: 36px; color: $white; vertical-align: middle;}
+    a { background: url(img/btn.png) no-repeat 50%; display: inline-block; width: 324px; height: 88px; line-height: 88px; font-size: 22px; color: $white; vertical-align: middle;}
 }
 .qd-item { @extend %clearfix; margin-top: 64px;
     img { float: right; height: 268px; width: 300px;}
@@ -277,6 +279,24 @@ body { padding-top: 99px;}
     }
 }
 .yj-bnr { @extend .hzal-bnr; height: 533px;}
+
+.bu { overflow: hidden; width: 100%; position: relative; padding: 20px 0; height: 180px; margin: 60px 0 50px;
+    ul { width: 1000em; height: 180px;}
+    li { float: left; width: 243px; padding: 10px 10px 10px 0; height: 160px; position: relative; transition: width, height .4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        img { width: 243px; height: 160px;}
+        
+    }
+    .cur { width: 273px; height: 180px; padding: 0 10px 0 0;
+        img { width: 273px; height: 180px;}
+    }
+    .sib { width: 233px; height: 160px;
+        img { width: 233px; height: 160px;}
+    }
+    span { background: url(img/arrow.png) 0 0 no-repeat; position: absolute; width: 21px; height: 34px; top: 50%; margin-top: -17px; cursor: pointer;
+        &.prev { background-position: 0 0; left: 1%;}
+        &.next { background-position: 100% 0; right: 1%;}
+    }
+}
 
 @-webkit-keyframes hatch {
     0% {
