@@ -137,7 +137,7 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 				'animation': 'none'
 			});
 		}
-		$('.warper').on('webkitTransitionEnd', function() {
+		$('.warper').on('webkitTransitionEnd transitionend', function() {
 
 			if (Math.abs(sIdx) == 1 && !$ytList.hasClass('anim')) {
 				$ytList.addClass('anim');
@@ -159,7 +159,7 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		});
 
 
-		$manageCoverMask.on('webkitAnimationEnd', function() {
+		$manageCoverMask.on('webkitAnimationEnd animationEnd', function() {
 			animated = 1;
 		});
 
@@ -213,13 +213,11 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 				winH = $win.height();
 			if (Math.abs(sIdx) < 5) {
 				target.css({
-					'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)',
-					'transition': '0'
+					'transform': 'translate3d(0, ' + winH * sIdx + 'px, 0)'
 				});
 			} else {
 				target.css({
-					'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)',
-					'transition': '0'
+					'transform': 'translate3d(0, ' + (winH * (sIdx + 1) - 440) + 'px, 0)'
 				});
 			}
 			$('.src').css({

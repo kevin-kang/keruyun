@@ -1,4 +1,4 @@
-require(['js/module/util', 'js/module/navfixed', 'js/module/roundabout' , 'js/module/roundaboutshapes'], function(util) {
+require(['js/module/util', 'js/module/navfixed', 'js/module/roundabout' , 'js/module/roundaboutshapes', 'js/module/subNav'], function(util) {
 	var $doc = $(document),
 		$win = $(window),
 		$subNav = $('.subnav'),
