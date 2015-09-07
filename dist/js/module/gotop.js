@@ -1,1 +1,0 @@
-define(function(){function n(){var n=t.scrollTop();n>2e3?d.fadeIn():d.fadeOut()}function o(){c.animate({scrollTop:0},500)}var t=$(window),i=$(document),l=$("body"),c=$("html, body"),d=null,a='<div class="gotop-btn"><img src="images/gotopbtn.png" alt="返回顶部"></div>';l.append(a),d=i.find(".gotop-btn"),t.on("scroll",n),d.on("click",o)});
