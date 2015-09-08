@@ -22,6 +22,15 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		arrTmp = [];
 
 
+	function isTransition() { //判断是否支持transition
+		var thisBody = document.body || document.documentElement,
+			thisStyle = thisBody.style,
+			support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
+		return support;
+	};
+
+	// console.log(isTransition());
+
 	function autoSetImageW() {
 		var winW = $win.width(),
 			imagesW = winW / 5,
@@ -74,12 +83,12 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 			});
 	}
 
-	function stopSlide(){
+	function stopSlide() {
 		clearInterval(sdtimes);
 	}
 
-	function initSlide(){
-		sdtimes = setInterval(function(){
+	function initSlide() {
+		sdtimes = setInterval(function() {
 			slideNucleus('-', $ul.find('li').width());
 		}, 3000);
 	}
@@ -107,7 +116,7 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 	};
 
 
-	if (navigator.userAgent.toLowerCase().match(/applewebkit/) == 'applewebkit') {
+	if (isTransition()) {
 		$('body, html').css({
 			'height': '100%',
 			// 'min-height': '955px',
@@ -120,7 +129,8 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		});
 
 		$('.src').css({
-			'height': $doc.height(),
+			'padding-top': 80,
+			'height': $win.height()-80,
 			'overflow': 'hidden'
 		});
 
@@ -221,7 +231,8 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 				});
 			}
 			$('.src').css({
-				'height': $doc.height(),
+				'padding-top': 80,
+				'height': $win.height() - 80,
 				'overflow': 'hidden'
 			});
 		}).resize();
@@ -229,7 +240,11 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		$manageScoll.hide();
 		$('.part-5').find('li').css({
 			'opacity': 1
-		})
+		}).css({
+			'transform': 'translatey(0)'
+		});
+		$('.yt-list').find('li').children('.img-2').hide();
+		$('.manage-cover-mask').css('width', '100%');
 	}
 
 	$manageScoll.find('span').on('mousedown', function(e) {
@@ -252,5 +267,5 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 
 	$prevBtn.on('click', slide);
 	$nextBtn.on('click', slide);
-	
+
 });

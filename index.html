@@ -233,8 +233,8 @@
                 <img class="manage-txt" src="images/txt-3.png" alt="">
                 <a class="know-more" href="#nogo">了解更多</a>
                 <div class="manage-cover">
-                    <img src="css/img/yt-1.png" alt="">
-                    <div class="manage-cover-mask"></div>
+                    <img class="ytimg" src="css/img/yt-1.png" alt="">
+                    <div class="manage-cover-mask"><img src="css/img/yt-2.jpg" alt=""></div>
                     <div class="manage-scoll">
                         <p><span></span></p>
                     </div>
@@ -343,29 +343,35 @@
         <div class="cls-btn apply-cls">X</div>
         <form id="form" class="apply-info-form" action="">
             <div class="apply-info-form-b">
-                <label for="name">
-                    商户名称
-                    <input type="text" name="dealer" id="name" class="" errorMsg="">
-                </label>
-                <label for="phone">
-                    联系电话
-                    <input type="text" name="phone" class="phone" id="phone" errorMsg="*输入正确的电话">
-                </label>
-                <label for="region">
-                    联系人
-                    <input type="text" name="contacter" id="region" errorMsg="*联系人不能空">
-                </label>
-                <label for="adds">
-                    商户所在地址
-                    <select name="adds" id="adds" errorMsg="*商户所在地址不能空">
-                        <option value="">请选择</option>
-                        <option value="01">北京</option>
-                        <option value="02">成都</option>
-                    </select>
-                    <input type="text" class="ignore" >
-                </label>
+                <div class="item">
+                    <label for="name">商户名称</label>
+                    <div class="item-ipt"><input type="text" name="dealer" id="name" class="" errorMsg=""></div>
+                </div>
+                <div class="item">
+                    <label for="phone">联系电话</label>
+                    <div class="item-ipt">
+                        <input type="text" name="phone" class="phone" id="phone" errorMsg="*输入正确的电话">
+                    </div>
+                </div>
+                <div class="item">
+                    <label for="region">联系人</label>
+                    <div class="item-ipt">
+                        <input type="text" name="contacter" id="region" errorMsg="*联系人不能空">
+                    </div>
+                </div>
+                <div class="item">
+                    <label for="adds">商户所在地址</label>
+                    <div class="item-ipt">
+                        <select name="adds" id="adds" errorMsg="*商户所在地址不能空">
+                            <option value="">请选择</option>
+                            <option value="01">北京</option>
+                            <option value="02">成都</option>
+                        </select>
+                        <input type="text" class="ignore" >
+                    </div>
+                </div>
             </div>
-            <input class="sub-btn" type="submit">
+            <input class="sub-btn" value="立即开通" type="submit">
         </form>
         <div class="sub-success">
             <h3>提交成功</h3>

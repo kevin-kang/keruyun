@@ -14,6 +14,21 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
         idx = 0,
         sdtime = time = null;
 
+    function isTransition() { //判断是否支持transition
+        var thisBody = document.body || document.documentElement,
+            thisStyle = thisBody.style,
+            support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
+        return support;
+    };
+
+    if(!isTransition()){
+        $('.product').find('.hover').hide();
+        $('.contactus-bnr').find('.coordinate, .tips').css({
+            'opacity': 1,
+            'filter': 'alpha(opacity=100)'
+        });
+    }
+
     function autoShowTips() {
         var len = $contactusBnr.find('li').size();
 

@@ -60,7 +60,8 @@ body { background-color: $white;}
 .main { width: 1000px; margin: 0 auto;}
 .disn { display: none !important;}
 /*header*/
-.header { background-color: $white; height: 80px; box-shadow: 0 2px 1px rgba(0,0,0,.1); z-index: 10; position: relative;
+.header { background-color: $white; height: 80px; border-bottom: 1px solid #ccc; z-index: 10; position: relative;
+    &:nth-child(1) { border-bottom: none; box-shadow: 0 2px 1px rgba(0,0,0,.1); }
     h1 { float: left; width: 127px; height: 55px; margin-top: 12px; background: url(img/logo.png) no-repeat 0 50%; line-height: 0; font-size: 0; overflow: hidden; text-indent: -99em;}
     .nav { float: right; line-height: 80px; width: 700px;
         ul { float: left;}
@@ -94,15 +95,15 @@ body { background-color: $white;}
 }
 /*warper*/
 .warper { position: relative; transition: transform 1000ms cubic-bezier(0.86, 0, 0.07, 1), margin-top .4s cubic-bezier(0.18, 0.89, 0.32, 1.28); -webkit-transition: -webkit-transform 1000ms cubic-bezier(0.86, 0, 0.07, 1), margin-top .4s cubic-bezier(0.18, 0.89, 0.32, 1.28); 
-    &.anim { margin-top: 80px;}
+    &.anim { margin-top: 50px;}
 }
 /*footer*/
 .footer { background-color: #464d5a;
     .dl-list { width: 748px; padding-top: 55px;
         dl { @extend %clearfix;}
         dt, dd { line-height: 46px;}
-        dt { font-size: 20px; color: #c7cfdc; @extend .fl; margin-right: 50px;}
-        dd { font-size: 16px;
+        dt { font-size: 14px; color: #c7cfdc; @extend .fl; margin-right: 50px;}
+        dd { font-size: 14px;
             a { color: #8c93a1; margin-right: 14px; display: inline-block; *display: inline; zoom: 1;}
         }
     }
@@ -130,19 +131,22 @@ body { background-color: $white;}
         &:active { background-position: 0 100%;}
     }
     form {
-        label { font-size: 14px; color: $c666; line-height: 1; margin: 0 27px 20px; display: block; position: relative;}
-        input { background-color: $white; font-size: 14px; padding: 5px; margin-top: 10px; border: 1px solid #d2d6db; border-radius: 5px; height: 28px; line-height: 28px; width: 260px; position: relative; z-index: 3;
+        label { font-size: 14px; color: $c666; line-height: 1; width: 100%; display: block; position: relative;}
+        .item { height: 64px; margin:0 27px 20px;
+            .item-ipt { position: relative; z-index: 2;}
+        }
+        input { background-color: $white; font-size: 14px; padding: 5px; margin-top: 10px; border: 1px solid #d2d6db; border-radius: 5px; height: 28px; line-height: 28px; width: 260px; position: relative; z-index: 3; display: block;
             &:focus { border-color: #33afff;}
             &.err-tips { border-color: #f57b32;
                 &:focus { border-color: #f57b32;}
             }
         }
-        select { width: 100%; height: 40px; position: absolute; left: 0; bottom: 0; -webkit-appearance: none; background: transparent; z-index: 4; opacity: 0;
+        select { height: 40px; position: absolute; left: 0; right: 0; width: 280px; top: 0; bottom: 0; -webkit-appearance: none; appearance: none; background: transparent; z-index: 4; opacity: 0; filter: alpha(opacity=0);
             & ~ input { background:#fff url(img/select.png) no-repeat 100% 0;}
             &:focus ~ input { border-color: #33afff; background:#fff url(img/select.png) no-repeat 100% 50%;}
             &.err-tips:focus ~ input, &.err-tips ~ input { background:#fff url(img/select.png) no-repeat 100% 100%; border-color: #f57b32;}
         }
-        div.err-tips { position: absolute; left: 0; top: 60px; width: 100%; border-radius: 0 0 5px 5px; background-color: #ff804b; height: 40px; line-height: 42px; text-align: center; color: $white; font-size: 14px; z-index: 2; overflow: hidden;
+        div.err-tips { position: absolute; left: 0; top: 36px; width: 100%; border-radius: 0 0 5px 5px; background-color: #ff804b; height: 40px; line-height: 42px; text-align: center; color: $white; font-size: 14px; z-index: 2; overflow: hidden;
         }
         .apply-info-form-u { display: none;}
     }
@@ -199,7 +203,61 @@ body { background-color: $white;}
     transform: scale3d(1, 1, 1);
   }
 }
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(.9, .9, .9);
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(.97, .97, .97);
+    transform: scale3d(.97, .97, .97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
 @-webkit-keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes zoomOut {
   from {
     opacity: 1;
   }
