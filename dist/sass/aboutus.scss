@@ -24,19 +24,18 @@
 		}		
 	}
 }
-.scroll-pic {position: relative; padding-top: 400px; height: 400px; margin-bottom: 50px;
-	li { position: relative; height: 664px; overflow: hidden;
-		img { width: 100%;}
-		.img-mask { position: absolute; width: 100%; left: 0; bottom: 0; height: 175px; background-color: $black; opacity: .52; filter: alpha(opacity=52); z-index: 3; cursor: pointer;}
-		.img-txt { position: absolute; width: 100%; left: 0; bottom: 0; height: 175px; color: $white; text-align: center; font-size: 16px; z-index: 2;
-			p { padding-top: 50px;}
-			a { display: block; width: 92px; height: 27px; line-height: 27px; color: $white; text-align: center; background-color: #04acff; border-radius: 16.5px; margin: 20px auto 0; font-size: 12px;}
+.scroll-pic {position: relative; margin: 50px 0; @extend %clearfix;
+	li { position: relative; height: 460px; overflow: hidden; width: 333.333px; float: left;
+		img { width: 100%; height: 460px;}
+		.pos { position: absolute; width: 100%; height: 138px; left: 0; bottom: -138px;}
+		.pos:last-child { bottom: 0; -webkit-transform: translate3d(0 ,100%, 0); transform: translate3d(0 ,100%, 0); -webkit-transition: -webkit-transform .5s ease; transition: transform .5s ease;}
+		.img-mask { width: 100%; height: 138px; background-color: $black; opacity: .52; filter: alpha(opacity=52);}
+		.img-txt { position: absolute; width: 100%; left: 0; bottom: 0; height: 138px; color: $white; text-align: center; font-size: 14px; z-index: 2;
+			p { padding: 25px 50px 0; line-height: 24px;}
+			a { display: block; width: 92px; height: 27px; line-height: 27px; color: $white; text-align: center; background-color: #04acff; border-radius: 16.5px; margin: 5px auto 0; font-size: 12px;}
 		}
-		&.roundabout-moveable-item {
-			.img-mask { height: 100%;}
-		}
-		&.roundabout-in-focus {
-			.img-mask { height: 175px; z-index: 1;}
+		&:hover {
+			.pos { bottom: 0; transform: translate3d(0 ,0, 0); -webkit-transform: translate3d(0 ,0, 0);}
 		}
 	} 
 	.dot { position: absolute; bottom: 0; text-align: center; width: 100%;

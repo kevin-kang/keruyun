@@ -82,8 +82,7 @@ gulp.task('scss', function() { //scss文件转css
     }
     gulp.src(['sass/*.scss'])
         .pipe(sass({
-            // outputStyle : 'compressed',
-            outputStyle: 'compact',
+            outputStyle: 'compressed',//'compact',
             linefeed: 'cr'
         }).on('error', sass.logError))
         .pipe(gulp.dest('css/'));

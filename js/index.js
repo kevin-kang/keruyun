@@ -129,7 +129,7 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		});
 
 		$('.src').css({
-			'padding-top': 80,
+			'margin-top': 80,
 			'height': $win.height()-80,
 			'overflow': 'hidden'
 		});
@@ -168,11 +168,6 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 			}
 		});
 
-
-		$manageCoverMask.on('webkitAnimationEnd animationEnd', function() {
-			animated = 1;
-		});
-
 		function animates(sIdx) {
 			var target = $('.warper'),
 				winH = $(this).height();
@@ -190,9 +185,6 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 			}
 
 			$doc.find('.dot li').eq(Math.abs(sIdx)).addClass('cur').siblings().removeClass('cur');
-			// target.find('.src').eq(Math.abs(sIdx)).show(function(){
-			// 	$(this).siblings().hide();
-			// });
 		};
 
 		$('html,body').on('mousewheel', function() {
@@ -231,7 +223,7 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 				});
 			}
 			$('.src').css({
-				'padding-top': 80,
+				'margin-top': 80,
 				'height': $win.height() - 80,
 				'overflow': 'hidden'
 			});
@@ -256,8 +248,7 @@ require(['js/module/util', 'js/module/applyTips', 'js/module/subNav'], function(
 		});
 		$doc.on('mousemove', function(e) {
 			var x = e.pageX - ($win.width() - 1000) / 2;
-
-			if (isMove && animated && x <= $manageScoll.width() && x >= 0) {
+			if (isMove && x <= $manageScoll.width() && x >= 0) {
 				manageCover(x);
 			}
 		});

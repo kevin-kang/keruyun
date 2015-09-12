@@ -5,13 +5,14 @@ define(function() {
         $header = $('.header'),
         $nav = $('.nav'),
         $subNavbg = $('.sub-nav-bg'),
-        $warper = $('.warper');
+        $warper = $('.warper'),
+        dfteq = $nav.find('.cur').index();
 
     function showSubNav() {
         if ($(this).index() == 1) {
             $subNavbg.toggleClass('anim');
             $warper.toggleClass('anim');
-            $(this).toggleClass(' cur');
+            $(this).toggleClass('cur');
         }
     }
 
@@ -19,7 +20,10 @@ define(function() {
         if ($subNavbg.hasClass('anim')) {
             $subNavbg.removeClass('anim');
             $warper.removeClass('anim');
-            $nav.find('li').eq(1).removeClass('cur');
+            if(dfteq !=1 ){
+                $nav.find('li').eq(1).removeClass('cur');
+            }
+            
         }
     }
 
