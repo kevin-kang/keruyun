@@ -8,11 +8,13 @@ define(function() {
         $warper = $('.warper'),
         dfteq = $nav.find('.cur').index();
 
+    console.log(dfteq);
+
     function showSubNav() {
         if ($(this).index() == 1) {
             $subNavbg.toggleClass('anim');
             $warper.toggleClass('anim');
-            $(this).toggleClass('cur');
+            !$(this).hasClass('cur') && $(this).toggleClass('cur');
         }
     }
 
@@ -20,7 +22,8 @@ define(function() {
         if ($subNavbg.hasClass('anim')) {
             $subNavbg.removeClass('anim');
             $warper.removeClass('anim');
-            if(dfteq !=1 ){
+            console.log(dfteq !=1);
+            if(dfteq !=1){
                 $nav.find('li').eq(1).removeClass('cur');
             }
             
