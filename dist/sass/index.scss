@@ -1,7 +1,7 @@
 @import 'reset';
 body { padding-top: 80px;}
 .header { position: fixed; left: 0; top: 0; right: 0;}
-.src {position: relative; width: 100%; text-align: center; -moz-user-select:none; -webkit-user-select:none; user-select:none;}
+.src {position: relative; width: 100%; text-align: center; -moz-user-select:none; -webkit-user-select:none; -ms-user-select:none; user-select:none;}
 .know-more { display: inline-block; *display: inline; zoom: 1; width: 94px; height: 26px; line-height: 26px; text-align: center; font-size: 14px; color: #04acff; border: 1px solid #04acff; border-radius: 17px; background-color: $white; position: relative; z-index: 3;}
 .mid { position: absolute; width: 100%; min-height: 600px; left: 0; top: 50%; margin: -300px 0 0;}
 .part-1 { height: 800px;

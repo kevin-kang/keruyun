@@ -1,4 +1,5 @@
-;(function(factory) {
+'use strict';;
+(function(factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD模式
         define(factory);
@@ -7,7 +8,6 @@
         factory();
     }
 }(function() {
-    'use strict';
     $.fn.slides = function(option) {
         var option = $.extend({
             preload: false, // boolean, 关闭预载入动画
@@ -20,9 +20,9 @@
             container: 'slide_cont', // string, 动画容器类名
             nextBtn: 'next', // string, 下一帧按钮类名
             prevBtn: 'prev', // string, 上一帧按钮类名
-            fadeSpeed: 500, // number, fade动画速度
+            fadeSpeed: 350, // number, fade动画速度
             fadeEasing: '', // string, 必须导入动画函数 jquery.easing.1.3.js
-            slideSpeed: 500, // number, slide动画速度
+            slideSpeed: 350, // number, slide动画速度
             slideEasing: '', // string, 必须导入动画函数 jquery.easing.1.3.js
             start: 1, // number, 显示图片为第一张
             direction: 'next', // string, 'next, top, prev, bottom' 动画切换方向
@@ -146,10 +146,10 @@
                         },
                         animateCss3DirectionEnd = {
                             'left': {
-                                'transform': 'translate3d(0, 0, 0)'
+                                'transform': 'none'
                             },
                             'top': {
-                                'transform': 'translate3d(0, 0, 0)'
+                                'transform': 'none'
                             }
                         };
 
@@ -175,21 +175,24 @@
                 if (isTransition()) {
                     container.children().eq(cur).css({
                         'opacity': 0
-                    }).show().css({
-                        'opacity': 1,
-                        'transition': 'opacity ' + option.fadeSpeed + 'ms ease'
-                    }).on('transitionend', function() {
-                        active = false;
-                        ctrlAct = false;
-                        prevAct = false;
-                        $(this).removeAttr('style').show();
-                        option.callback();
-                    }).siblings().css({
-                        'opacity': 0,
-                        'transition': 'opacity ' + option.fadeSpeed + 'ms ease'
-                    }).on('transitionend', function() {
-                        container.children().eq(cur).siblings().removeAttr("style");
-                        option.callback();
+                    }).show(10, function() {
+                        $(this).css({
+                            'opacity': 1,
+                            'transition': 'opacity ' + option.fadeSpeed + 'ms ease'
+                        }).on('transitionend', function() {
+                            active = false;
+                            ctrlAct = false;
+                            prevAct = false;
+                            $(this).removeAttr('style').show();
+                            option.callback();
+                        }).siblings().css({
+                            'opacity': 0,
+                            'transition': 'opacity ' + option.fadeSpeed + 'ms ease'
+                        }).on('transitionend', function() {
+                            container.children().eq(cur).siblings().removeAttr("style");
+                            option.callback();
+
+                        });
                     });
                 } else {
                     container.children().eq(cur).fadeIn(option.fadeSpeed, option.fadeEasing, function() {
@@ -248,9 +251,11 @@
             //焦点控制显示
             $('.' + option.control, elem).children().each(function(idx, item) {
                 $(this).on(eventType, function() {
-                    var thisCurIdx = $('.' + option.control + ' .' + option.current, elem).index();
+                    var thisCurIdx = $('.' + option.current, elem).index();
                     curIdx = idx;
                     ctrlAct = true;
+
+                    clearInterval(t);
                     if (idx == thisCurIdx) {
                         return;
                     }

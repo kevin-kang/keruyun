@@ -132,9 +132,9 @@ body { padding-top: 80px;}
         .main { position: relative; height: 452px;}
         ul { position: relative;}
         li { position: absolute; font-size: 12px; padding-left: 36px; height: 49px; color: #c3c8d4; line-height: 86px;
-            .coordinate { position: absolute; left: 0; top: 0; height: 49px; background: url(img/coordinate.png) no-repeat 0 50%; width: 51px; line-height: 65px; font-size: 18px;-webkit-transform: scale(.6); transform: scale(.6); opacity: .5; filter: alpha(opacity=50); z-index: 2; -webkit-transform-origin: 40% 100%;}
+            .coordinate { position: absolute; left: 0; top: 0; height: 49px; background: url(img/coordinate.png) no-repeat 0 50%; width: 51px; line-height: 65px; font-size: 18px;-webkit-transform: scale(.6); transform: scale(.6); opacity: .5; *filter: alpha(opacity=50); z-index: 2; -webkit-transform-origin: 40% 100%;}
             &:hover, &.cur { font-size: 14px; color: $white; z-index: 10;
-                .coordinate { opacity: 1; filter: alpha(opacity=100); -webkit-animation: hatch .5s ease-in-out both; animation: hatch .5s ease-in-out both;
+                .coordinate { opacity: 1; *filter: alpha(opacity=100); -webkit-animation: hatch .5s ease-in-out both; animation: hatch .5s ease-in-out both;
                }
                .tips { display: block; opacity: 0; filter: alpha(opacity=0); -webkit-animation: zoomIn .3s ease-in-out .1s both; animation: zoomIn .3s ease-in-out .1s both; z-index: 10;}
             }
