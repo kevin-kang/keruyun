@@ -1,8 +1,6 @@
 @import 'reset';
 body { padding-top: 80px;}
-.header { position: fixed; left: 0; top: 0; right: 0;
-    .nav { width: auto;}
-}
+.header { position: fixed; left: 0; top: 0; right: 0;}
 .help {
     .help-bnr { background: url(img/helpbnr.png) 0 0 repeat-x; height: 272px; font-size: 48px; color: $white; line-height: 300px; overflow: hidden; text-align: center; text-shadow: 2px 1px 1px rgba(0,0,0,.6); width: 100%;}
     .help-mod { margin-top: 44px;
@@ -132,14 +130,15 @@ body { padding-top: 80px;}
         .main { position: relative; height: 452px;}
         ul { position: relative;}
         li { position: absolute; font-size: 12px; padding-left: 36px; height: 49px; color: #c3c8d4; line-height: 86px;
-            .coordinate { position: absolute; left: 0; top: 0; height: 49px; background: url(img/coordinate.png) no-repeat 0 50%; width: 51px; line-height: 65px; font-size: 18px;-webkit-transform: scale(.6); transform: scale(.6); opacity: .5; *filter: alpha(opacity=50); z-index: 2; -webkit-transform-origin: 40% 100%;}
+            .coordinate { position: absolute; left: 0; top: 0; height: 49px; background: url(img/coordinate.png) no-repeat 0 50%; width: 51px; line-height: 65px; font-size: 18px;-webkit-transform: scale(.6); transform: scale(.6); opacity: .5; filter: alpha(opacity=50); z-index: 2; -webkit-transform-origin: 40% 100%;}
             &:hover, &.cur { font-size: 14px; color: $white; z-index: 10;
-                .coordinate { opacity: 1; *filter: alpha(opacity=100); -webkit-animation: hatch .5s ease-in-out both; animation: hatch .5s ease-in-out both;
+                .coordinate { opacity: 1; filter: alpha(opacity=100); -webkit-animation: hatch .5s ease-in-out both; animation: hatch .5s ease-in-out both;
                }
                .tips { display: block; opacity: 0; filter: alpha(opacity=0); -webkit-animation: zoomIn .3s ease-in-out .1s both; animation: zoomIn .3s ease-in-out .1s both; z-index: 10;}
             }
-            .tips { position: absolute; left: -65%; bottom: 138%; width: 263px; background-color: #686f7c; border-radius: 8px; line-height: 1.8; font-size: 12px; color: $c999; z-index: 3; display: none; box-shadow: 1px 1px 6px rgba(0,0,0,.2); -webkit-transform-origin: 30% 100%; transform-origin: 30% 100%;
-                .arrow { border-top: 15px solid #686f7c; border-right: 15px solid transparent; border-bottom: 0; border-left: 0; position: absolute; left: 25%; bottom: -15px; height: 0; width: 0; line-height: 0; font-size: 0; overflow: hidden;}
+            .tips { position: absolute; left: -65%; bottom: 120%; width: 263px; line-height: 1.8; font-size: 12px; color: $c999; z-index: 3; display: none; -webkit-transform-origin: 30% 100%; transform-origin: 30% 100%; padding: 15px 0;
+                .tips-cont {  background-color: #686f7c; border-radius: 8px; box-shadow: 1px 1px 6px rgba(0,0,0,.2); }
+                .arrow { border-top: 15px solid #686f7c; border-right: 15px solid transparent; border-bottom: 0; border-left: 0; position: absolute; left: 25%; bottom: 0; height: 0; width: 0; line-height: 0; font-size: 0; overflow: hidden; z-index: 4;}
                 p { padding: 10px 0; margin: 0 20px; }
                 span { font-size: 14px; display: block;
                     strong { color: #37bdfa; margin-right: 10px;}
@@ -155,13 +154,13 @@ body { padding-top: 80px;}
             &.wh { left: 425px; top: 181px;}
             &.gz { left: 470px; top: 337px;}
             &.sy { left: 621px; top: 32px;
-                .tips { bottom: auto; top: 150%; -webkit-transform-origin: 30% 0%; transform-origin: 30% 0%;
-                    .arrow { top: -15px; border-top: 0; border-bottom: 15px solid #686f7c;}
+                .tips { bottom: auto; top: 120%; -webkit-transform-origin: 30% 0%; transform-origin: 30% 0%;
+                    .arrow { top: 0; border-top: 0; border-bottom: 15px solid #686f7c;}
                 }
             }
             &.bj { left: 523px; top: 54px; 
-                .tips { bottom: auto; top: 150%; -webkit-transform-origin: 30% 0%; transform-origin: 30% 0%;
-                    .arrow { top: -15px; border-top: 0; border-bottom: 15px solid #686f7c;}
+                .tips { bottom: auto; top: 120%; -webkit-transform-origin: 30% 0%; transform-origin: 30% 0%;
+                    .arrow { top: 0; border-top: 0; border-bottom: 15px solid #686f7c;}
                 }
             }
             &.tj { left: 513px; top: 104px;}
